@@ -1,0 +1,12 @@
+---
+- name: Configure webapp hosts
+  hosts: webapp
+  become: true
+  roles:
+    - role: geerlingguy.docker
+      tags: docker
+    - role: webapp
+      tags: app
+    - role: ansible-role-nginx
+    # - role: geerlingguy.nginx
+      tags: ["nginx", "reverse-proxy"]

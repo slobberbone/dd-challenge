@@ -1,0 +1,8 @@
+---
+- name: "Check HTTP probing on {{ inventory_hostname }}"
+  uri: 
+    url: "http://{{ hostvars[inventory_hostname]['private_ip_address'] }}:{{ item.port }}"
+    headers:
+      Host: "{{ item.fqdn }}"
+  loop: "{{ http_probes }}"
+  delegate_to: "{{ groups['webapp'] | difference([inventory_hostname]) | random }}"

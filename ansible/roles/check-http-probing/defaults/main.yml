@@ -1,0 +1,6 @@
+---
+http_probes:
+    - port: 80
+      fqdn: devops-production.datadome.co
+    - port: 81
+      fqdn: devops-dev.datadome.co

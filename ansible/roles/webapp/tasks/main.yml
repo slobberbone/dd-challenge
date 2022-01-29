@@ -1,0 +1,24 @@
+---
+- name: debug env
+  debug:
+    var: env
+
+- name: Install pip
+  ansible.builtin.apt:
+    name: python3-pip
+
+- name: Install pip prereqs
+  ansible.builtin.pip:
+    name: docker
+
+- name: Deploy webapp container
+  community.general.docker_container:
+    name: webapp
+    state: started
+    image: "{{ webapp_image }}"
+    restart_policy: always
+    pull: true
+    ports: 
+      - "{{ webapp_port }}:{{ webapp_port }}"
+
+

@@ -1,0 +1,14 @@
+---
+plugin: aws_ec2
+profile: perso
+regions:
+  - eu-west-3
+keyed_groups:
+  - key: tags.role
+    separator: ''
+hostnames:
+  - instance-id
+groups:
+  webapp: tags.role == "datadome-webapp"
+  # stg: "'stg' in tags.env"
+  # prd: "'prd' in tags.env"

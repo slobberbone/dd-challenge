@@ -1,0 +1,4 @@
+---
+# nginx_vhost_port: 80
+# nginx_vhost_server_name_env: production
+

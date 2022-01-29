@@ -1,0 +1,7 @@
+---
+- name: Configure webapp hosts
+  hosts: webapp
+  become: true
+  roles:
+    - role: check-http-probing
+      tags: check-http-probing

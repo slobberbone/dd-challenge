@@ -1,0 +1,5 @@
+---
+# Collections
+collections:
+  - name: community.general
+    version: 4.2.0
